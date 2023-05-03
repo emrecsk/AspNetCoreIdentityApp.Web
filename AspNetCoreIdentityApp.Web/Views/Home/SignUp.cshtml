@@ -1,0 +1,40 @@
+﻿@model SignUpViewModel
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+
+<div class="row">    
+    <div class="col-md-6 offset-md-3">
+        <h1>SignUp</h1>
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-info" role="alert">
+                @ViewBag.Message
+            </div>
+        }
+        <form asp-controller="Home" asp-action="SignUp" method="post">
+            <div class="mb-3">
+                <label for="UserName" class="form-label" asp-for="UserName"></label>
+                <input class="form-control" asp-for="UserName">
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label" asp-for="Email"></label>
+                <input class="form-control" asp-for="Email">
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label" asp-for="PhoneNumber"></label>
+                <input class="form-control" asp-for="PhoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label" asp-for="Password"></label>
+                <input class="form-control" asp-for="Password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="PasswordConfirm"></label>
+                <input class="form-control" asp-for="PasswordConfirm">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>
+</div>
