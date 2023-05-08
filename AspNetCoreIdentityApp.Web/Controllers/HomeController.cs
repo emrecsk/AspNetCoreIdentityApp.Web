@@ -34,7 +34,12 @@ namespace AspNetCoreIdentityApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel parameters)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var identityResult = await _userManager.CreateAsync(new() { UserName = parameters.UserName, PhoneNumber = parameters.PhoneNumber, Email = parameters.Email }, parameters.Password);
+
             if (identityResult.Succeeded)
             {
                 ViewBag.Message = "Sign in process is successful.";
