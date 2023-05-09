@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCoreIdentityApp.Web.ViewModal
+namespace AspNetCoreIdentityApp.Web.ViewModel
 {
     public class SignUpViewModel
     {

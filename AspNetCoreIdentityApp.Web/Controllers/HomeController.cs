@@ -1,5 +1,5 @@
 ﻿using AspNetCoreIdentityApp.Web.Models;
-using AspNetCoreIdentityApp.Web.ViewModal;
+using AspNetCoreIdentityApp.Web.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -29,6 +29,11 @@ namespace AspNetCoreIdentityApp.Web.Controllers
         }
         public IActionResult SignUp()
         {
+            return View();
+        }
+        public async Task<IActionResult> SignIn()
+        {
+            
             return View();
         }
         [HttpPost]
