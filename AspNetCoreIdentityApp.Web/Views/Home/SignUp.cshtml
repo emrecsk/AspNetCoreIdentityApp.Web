@@ -10,11 +10,9 @@
 <div class="row">    
     <div class="col-md-6 offset-md-3">
         <h1>SignUp</h1>
-        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        @if (TempData["success"] != null)
         {
-            <div class="alert alert-info" role="alert">
-                @ViewBag.Message
-            </div>
+            <div class="alert alert-success">@TempData["success"]</div>
         }
         <div asp-validation-summary=ModelOnly class="alert alert-danger" role="alert">
             

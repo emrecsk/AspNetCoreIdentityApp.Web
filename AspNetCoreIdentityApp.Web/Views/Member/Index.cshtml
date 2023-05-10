@@ -1,21 +1,32 @@
-﻿
+﻿@using AspNetCoreIdentityApp.Web.ViewModel
+@addTagHelper *, AspNetCoreIdentityApp.Web
 @{
     ViewData["Title"] = "Index";
 }
+@model UserViewModel
 
-<h1>Index</h1>
+<h1>User Information</h1>
+
 <h2>Welcome, @User.Identity!.Name</h2>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <user-picture picture-url="@Model.PictureUrl" style="width:200px"></user-picture>        
+    </div>
+</div>
     
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Type</th>
-                    <th>Autenticate</th>                    
+                    <th>User Name</th>
+                    <th>Email</th>                    
+                    <th>Telephone</th>                    
                 </tr>
             </thead>
-        
+        <tbody>
         <tr>
-                <td>@User.Identity.AuthenticationType</td>
-                <td>@User.Identity.IsAuthenticated</td>
+            <td>@Model.UserName</td>
+            <td>@Model.Email</td>
+            <td>@Model.PhoneNumber</td>
         </tr>
+        </tbody>        
         </table>

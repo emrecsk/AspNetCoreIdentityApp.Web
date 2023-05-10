@@ -1,0 +1,62 @@
+﻿@using AspNetCoreIdentityApp.Web.ViewModel
+@{
+    ViewData["Title"] = "UserUpdate";
+}
+
+@model UserEditViewModel
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>UserUpdate</h1>
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success">@TempData["success"]</div>
+        }
+        <div asp-validation-summary=ModelOnly class="alert alert-danger" role="alert">
+        </div>
+        <form asp-controller="Member" asp-action="UserUpdate" method="post" enctype="multipart/form-data"> @*When we get a file from a form then we should use enctype!!*@
+            <div class="mb-3">
+                <label for="UserName" class="form-label" asp-for="UserName"></label>
+                <input class="form-control" asp-for="UserName">
+                <span class="text-danger" asp-validation-for="UserName"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label" asp-for="Email"></label>
+                <input class="form-control" asp-for="Email">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label" asp-for="PhoneNumber"></label>
+                <input class="form-control" asp-for="PhoneNumber">
+                <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label" asp-for="BirthDate"></label>
+                <input class="form-control" asp-for="BirthDate">
+                <span class="text-danger" asp-validation-for="BirthDate"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="City"></label>
+                <input class="form-control" asp-for="City">
+                <span class="text-danger" asp-validation-for="City"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Gender"></label>
+                <select class="form-control" asp-for="Gender" asp-items="ViewBag.gender">
+                    <option value="">Please Select</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Gender"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Photo"></label>
+                <input type="file" class="form-control" asp-for="Photo">
+                <span class="text-danger" asp-validation-for="Photo"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Update User</button>
+        </form>
+    </div>
+</div>

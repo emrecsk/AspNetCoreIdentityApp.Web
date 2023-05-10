@@ -4,6 +4,7 @@ using AspNetCoreIdentityApp.Web.OptionsModel;
 using AspNetCoreIdentityApp.Web.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.AddIdentityConfig();
 builder.Services.AddCookieConfig();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

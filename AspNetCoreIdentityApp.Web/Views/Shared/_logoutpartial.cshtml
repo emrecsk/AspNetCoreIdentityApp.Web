@@ -7,6 +7,9 @@
                     Hello, @User.Identity.Name
                 </a>
             </li>
+            <li class="nav-item me-0 mt-1"><a class="dropdown-item" asp-controller="Member" asp-action="Index">Profile</a></li>
+            <li class="nav-item me-0 mt-1"><a class="dropdown-item" asp-controller="Member" asp-action="PasswordChange">Password Change</a></li>
+            <li class="nav-item me-0 mt-1"><a class="dropdown-item" asp-controller="Member" asp-action="UserUpdate">Update User Info</a></li>
             <li class="nav-item me-0 mt-1"><a class="dropdown-item" asp-route-returnurl="/Home/Index" asp-controller="Member" asp-action="LogOut">Sign Out</a></li>
         </ul>
     }
