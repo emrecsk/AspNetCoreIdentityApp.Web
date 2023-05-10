@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<h2>Welcome, @User.Identity!.Name</h2>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Autenticate</th>                    
+                </tr>
+            </thead>
+        
+        <tr>
+                <td>@User.Identity.AuthenticationType</td>
+                <td>@User.Identity.IsAuthenticated</td>
+        </tr>
+        </table>

@@ -20,15 +20,26 @@ namespace AspNetCoreIdentityApp.Web.ViewModel
         [Required(ErrorMessage = "User Name is required.")]
         [Display(Name = "User Name :")]
         public string UserName { get; set; }
+
+
         [Required(ErrorMessage = "E-Mail is required.")]
+        [EmailAddress(ErrorMessage = "E-Mail is not valid.")]
         [Display(Name = "E-Mail :")]
         public string Email { get; set; }
+
+
         [Display(Name = "Phone Number :")]
         [Required(ErrorMessage = "Phone Number is required.")]
         public string PhoneNumber { get; set; }
+
+
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Password is required.")]
         [Display(Name = "Password :")]
         public string Password { get; set; }
+
+
+        [DataType(DataType.Password)]
         [Compare(nameof(Password),ErrorMessage = "Passwords do not match!")]
         [Required(ErrorMessage = "Password Confirm is required.")]
         [Display(Name = "Password Confirm :")]

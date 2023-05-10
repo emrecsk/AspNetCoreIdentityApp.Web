@@ -3,11 +3,17 @@
     ViewData["Title"] = "SignIn";
 }
 @model SignInViewModel
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <h1>SignIn</h1>
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert">
 
-        <form asp-controller="Home" asp-action="SignIn" method="post">
+        </div>
+
+        <form asp-controller="Home" asp-action="SignIn" asp-route-returnUrl="@Context.Request.Query["returnURL"]" method="post"> @*asp controller action and asp-route-returnUrl can be remove. Because we are already sign in page so it will post to sign in post action *@
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">     
@@ -18,10 +24,17 @@
                 <input asp-for="Password" class="form-control" placeholder="Password">
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" asp-for="RememberMe" >
-                <label class="form-check-label" asp-for="RememberMe"></label>
-            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="RememberMe">
+                        <label class="form-check-label" asp-for="RememberMe"></label>
+                    </div>
+                </div>                
+                <div class="col-6">
+                    <a class="btn btn-outline-secondary btn-sm float-end mt-2" asp-action="ForgetPassword" asp-controller="Home">Forgot Password</a>
+                </div>
+            </div>            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
