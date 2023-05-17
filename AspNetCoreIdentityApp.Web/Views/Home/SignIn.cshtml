@@ -20,12 +20,12 @@
         <form asp-controller="Home" asp-action="SignIn" asp-route-returnUrl="@Context.Request.Query["returnURL"]" method="post"> @*asp controller action and asp-route-returnUrl can be remove. Because we are already sign in page so it will post to sign in post action *@
             <div class="form-group">
                 <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">     
+                <input asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" value="emrecsk@gmail.com">     
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" placeholder="Password">
+                <input asp-for="Password" class="form-control" placeholder="Password" value="Password123*">
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="row">

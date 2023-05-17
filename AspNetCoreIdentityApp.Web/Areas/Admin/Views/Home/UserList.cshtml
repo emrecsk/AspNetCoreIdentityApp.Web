@@ -11,6 +11,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Roles</th>
+            <th>Role Control</th>
         </tr>
     </thead>
 <tbody>
@@ -20,6 +22,10 @@
                 <td>@user.Id</td>
                 <td>@user.Name</td>
                 <td>@user.Email</td>
+                <td>
+                    <user-role-name user-id="@user.Id"></user-role-name>
+                </td>
+                <td><a class="btn btn-sm btn-outline-info" asp-area="Admin" asp-controller="Role" asp-action="RoleAssignment" asp-route-id="@user.Id">Role Assign</a></td>
             </tr>
         }
 </table>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RoleListViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Roles</h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary float-end" asp-area="Admin" asp-controller="Role" asp-action="Create">New Role</a>
+        </div>
+    </div>
+
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="container">
+            <div class="alert alert-success">@TempData["Success"]</div>
+        </div>
+
+    }
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>Controls</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-dark" asp-area="Admin" asp-controller="Role" asp-action="Update" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
